@@ -1,0 +1,131 @@
+package GUI;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JComboBox;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class updateSubject extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField descriptionInput;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					updateSubject frame = new updateSubject();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public updateSubject() {
+		setTitle("Update subject");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 572, 355);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.BLACK);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.RED);
+		panel.setBounds(0, 0, 556, 59);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("UPDATE SUBJECT");
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblNewLabel.setBounds(10, 11, 184, 37);
+		panel.add(lblNewLabel);
+		
+		JComboBox subJectIDInput = new JComboBox();
+		subJectIDInput.setBounds(31, 100, 76, 22);
+		contentPane.add(subJectIDInput);
+		
+		JLabel lblNewLabel_1 = new JLabel("Subject ID");
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setBounds(31, 70, 82, 32);
+		contentPane.add(lblNewLabel_1);
+		
+		JButton searchButton = new JButton("Search");
+		searchButton.setBounds(133, 100, 89, 23);
+		contentPane.add(searchButton);
+		
+		JLabel subjectNameInput = new JLabel("Subject  name");
+		subjectNameInput.setForeground(Color.WHITE);
+		subjectNameInput.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		subjectNameInput.setBounds(31, 127, 112, 29);
+		contentPane.add(subjectNameInput);
+		
+		textField = new JTextField();
+		textField.setBounds(31, 161, 184, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_1_1_1 = new JLabel("Description");
+		lblNewLabel_1_1_1.setForeground(Color.WHITE);
+		lblNewLabel_1_1_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblNewLabel_1_1_1.setBounds(31, 192, 112, 29);
+		contentPane.add(lblNewLabel_1_1_1);
+		
+		descriptionInput = new JTextField();
+		descriptionInput.setColumns(10);
+		descriptionInput.setBounds(31, 226, 184, 20);
+		contentPane.add(descriptionInput);
+		
+		JLabel credits = new JLabel("Subject ID");
+		credits.setForeground(Color.WHITE);
+		credits.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		credits.setBounds(31, 257, 82, 32);
+		contentPane.add(credits);
+		
+		JComboBox creditsInput = new JComboBox();
+		creditsInput.setBounds(31, 287, 76, 22);
+		contentPane.add(creditsInput);
+		
+		JButton deleteButton = new JButton("Delete");
+		deleteButton.setBounds(367, 131, 89, 23);
+		contentPane.add(deleteButton);
+		
+		JButton saveButton = new JButton("Save");
+		saveButton.setBounds(367, 177, 89, 23);
+		contentPane.add(saveButton);
+		
+		JButton backButton = new JButton("Back");
+		backButton.setBounds(367, 225, 89, 23);
+		contentPane.add(backButton);
+		
+		JButton clearButton = new JButton("Clear");
+		clearButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		clearButton.setBounds(367, 88, 89, 23);
+		contentPane.add(clearButton);
+	}
+}

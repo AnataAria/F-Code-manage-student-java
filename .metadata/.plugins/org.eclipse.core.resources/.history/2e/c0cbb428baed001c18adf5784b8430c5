@@ -1,0 +1,140 @@
+package GUI;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Dialog.ModalExclusionType;
+
+public class menu extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					menu frame = new menu();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public menu() {
+		setTitle("Menu");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 720, 480);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.BLACK);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("E:\\JavaOOPTraining\\BEprojectF-CodeLV1Ver4\\BEprojectF-CodeLV1Ver4\\src\\icon\\menu.png"));
+		lblNewLabel_1.setBounds(216, 94, 71, 76);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblMenu = new JLabel("MENU");
+		lblMenu.setForeground(Color.WHITE);
+		lblMenu.setFont(new Font("Times New Roman", Font.BOLD, 40));
+		lblMenu.setBounds(297, 94, 144, 66);
+		contentPane.add(lblMenu);
+		
+		JButton addStudentButton = new JButton("ADD NEW STUDENT");
+		addStudentButton.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		addStudentButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addStudent addStudent = new addStudent();
+				addStudent.setVisible(true);
+				dispose();
+			}
+		});
+		addStudentButton.setBounds(237, 185, 181, 23);
+		contentPane.add(addStudentButton);
+		
+		JButton updateStudentButton = new JButton("UPDATE STUDENT");
+		updateStudentButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				updateStudent updateStu = new updateStudent();
+				updateStu.setVisible(true);
+				dispose();
+			}
+		});
+		updateStudentButton.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		updateStudentButton.setBounds(237, 222, 181, 23);
+		contentPane.add(updateStudentButton);
+		
+		JButton addSubjectButton = new JButton("ADD SUBJECT");
+		addSubjectButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addSubject addSubject = new addSubject();
+				addSubject.setVisible(true);
+				dispose();
+			}
+		});
+		addSubjectButton.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		addSubjectButton.setBounds(237, 256, 181, 23);
+		contentPane.add(addSubjectButton);
+		
+		JButton updateSubjectButton = new JButton("UPDATE SUBJECT");
+		updateSubjectButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				updateSubject updateSub = new updateSubject();
+				updateSub.setVisible(true);
+				dispose();
+			}
+		});
+		updateSubjectButton.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		updateSubjectButton.setBounds(237, 290, 181, 23);
+		contentPane.add(updateSubjectButton);
+		
+		JLabel logOut = new JLabel("");
+		logOut.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int confirm = JOptionPane.showConfirmDialog(null, "Are you sure to log out(Y/N)");
+				if(confirm == 0) {
+					loginWindows login = new loginWindows();
+					login.setVisible(true);
+					dispose();
+				}
+			}
+		});
+		logOut.setIcon(new ImageIcon("E:\\JavaOOPTraining\\BEprojectF-CodeLV1Ver4\\BEprojectF-CodeLV1Ver4\\src\\icon\\log-out.png"));
+		logOut.setBounds(10, 387, 42, 43);
+		contentPane.add(logOut);
+		
+		JButton addAccountButton = new JButton("ADD NEW ACCOUNT");
+		addAccountButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		addAccountButton.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		addAccountButton.setBounds(237, 324, 181, 23);
+		contentPane.add(addAccountButton);
+	}
+}

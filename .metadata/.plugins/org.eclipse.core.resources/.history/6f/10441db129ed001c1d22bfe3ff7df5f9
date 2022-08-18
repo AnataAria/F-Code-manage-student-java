@@ -1,0 +1,91 @@
+package GUI;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+
+public class addSubject extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField subjectIDInput;
+	private JTextField subjectNameInput;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					addSubject frame = new addSubject();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public addSubject() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel welcome = new JLabel("Welcome");
+		welcome.setBounds(378, 11, 46, 14);
+		contentPane.add(welcome);
+		
+		subjectIDInput = new JTextField();
+		subjectIDInput.setBounds(33, 51, 191, 20);
+		contentPane.add(subjectIDInput);
+		subjectIDInput.setColumns(10);
+		
+		subjectNameInput = new JTextField();
+		subjectNameInput.setColumns(10);
+		subjectNameInput.setBounds(33, 92, 191, 20);
+		contentPane.add(subjectNameInput);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+		comboBox.setBounds(33, 142, 30, 22);
+		contentPane.add(comboBox);
+		
+		JLabel lblNewLabel = new JLabel("Subject ID");
+		lblNewLabel.setBounds(33, 29, 76, 22);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblSubjectName = new JLabel("Subject name");
+		lblSubjectName.setBounds(33, 70, 76, 22);
+		contentPane.add(lblSubjectName);
+		
+		JLabel lblCredits = new JLabel("Credits");
+		lblCredits.setBounds(33, 121, 76, 22);
+		contentPane.add(lblCredits);
+		
+		JButton btnNewButton = new JButton("Back");
+		btnNewButton.setBounds(293, 50, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnClear = new JButton("Clear");
+		btnClear.setBounds(293, 91, 89, 23);
+		contentPane.add(btnClear);
+		
+		JButton btnSava = new JButton("Save");
+		btnSava.setBounds(293, 142, 89, 23);
+		contentPane.add(btnSava);
+	}
+}

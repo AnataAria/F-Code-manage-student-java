@@ -1,0 +1,85 @@
+package GUI;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class menu extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					menu frame = new menu();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public menu() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 720, 480);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.BLACK);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("E:\\JavaOOPTraining\\BEprojectF-CodeLV1Ver4\\BEprojectF-CodeLV1Ver4\\src\\icon\\menu.png"));
+		lblNewLabel_1.setBounds(216, 94, 71, 76);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblMenu = new JLabel("MENU");
+		lblMenu.setForeground(Color.WHITE);
+		lblMenu.setFont(new Font("Times New Roman", Font.BOLD, 40));
+		lblMenu.setBounds(297, 94, 144, 66);
+		contentPane.add(lblMenu);
+		
+		JButton addStudentButton = new JButton("ADD NEW STUDENT");
+		addStudentButton.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		addStudentButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		addStudentButton.setBounds(237, 185, 181, 23);
+		contentPane.add(addStudentButton);
+		
+		JButton btnUpdateStudent = new JButton("UPDATE STUDENT");
+		btnUpdateStudent.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		btnUpdateStudent.setBounds(237, 222, 181, 23);
+		contentPane.add(btnUpdateStudent);
+		
+		JButton addStudentButton_1_1 = new JButton("ADD SUBJECT");
+		addStudentButton_1_1.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		addStudentButton_1_1.setBounds(237, 256, 181, 23);
+		contentPane.add(addStudentButton_1_1);
+		
+		JButton addStudentButton_1_2 = new JButton("UPDATE SUBJECT");
+		addStudentButton_1_2.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		addStudentButton_1_2.setBounds(237, 290, 181, 23);
+		contentPane.add(addStudentButton_1_2);
+	}
+
+}

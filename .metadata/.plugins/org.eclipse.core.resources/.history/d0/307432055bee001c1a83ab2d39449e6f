@@ -1,0 +1,121 @@
+package databaseModel;
+
+import java.util.ArrayList;
+
+public class student {
+	private int No;
+	private String studentFirstName;
+	private String studentLastName;
+	private String studentFullName;
+	private String studentID;
+	private String major;
+	private String gender;
+	private String birthday;
+	private int phoneNumber;
+	private String email;
+	private String address;
+	/**
+	 * @param no
+	 * @param studentFirstName
+	 * @param studentLastName
+	 * @param studentFullName
+	 * @param studentID
+	 * @param gender
+	 * @param phoneNumber
+	 * @param email
+	 */
+	public student(int no, String studentFirstName, String studentLastName, String studentFullName, String studentID,String major, String gender,String birthday, int phoneNumber, String email, String address) {
+
+		this.No = no;
+		this.studentFirstName = studentFirstName;
+		this.studentLastName = studentLastName;
+		this.studentFullName = studentFullName;
+		this.studentID = studentID;
+		this.gender = gender;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.major = major;
+		this.birthday = birthday;
+		this.address = address;
+	}
+	public String getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public int getNo() {
+		return No;
+	}
+	public String getMajor() {
+		return major;
+	}
+	public void setMajor(String major) {
+		this.major = major;
+	}
+	public void setNo(int no) {
+		this.No = no;
+	}
+	public String getStudentFirstName() {
+		return studentFirstName;
+	}
+	public void setStudentFirstName(String studentFirstName) {
+		this.studentFirstName = studentFirstName;
+	}
+	public String getStudentLastName() {
+		return studentLastName;
+	}
+	public void setStudentLastName(String studentLastName) {
+		this.studentLastName = studentLastName;
+	}
+	public String getStudentFullName() {
+		return studentFullName;
+	}
+	public void setStudentFullName(String studentFullName) {
+		this.studentFullName = studentFullName;
+	}
+	public String getStudentID() {
+		return studentID;
+	}
+	public void setStudentID(String studentID) {
+		this.studentID = studentID;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public int getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(int phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	@Override
+	public String toString() {
+		return No + "," + studentFirstName + "," + studentLastName
+				+ "," + studentFullName + "," + studentID + "," + gender
+				+ "," + phoneNumber + "," + email;
+	}
+	
+	public ArrayList<student> getStudentData(){
+		ArrayList<student> studentData = new ArrayList<student>();
+		student student = new student(No,studentFirstName,studentLastName,studentFullName,studentID,major,gender,phoneNumber,email);
+		studentData.add(student);
+		return studentData;
+	}
+	
+}

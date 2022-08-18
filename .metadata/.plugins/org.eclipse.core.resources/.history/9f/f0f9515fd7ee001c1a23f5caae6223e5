@@ -1,0 +1,221 @@
+package GUI;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import database.studentManagement;
+import database.subjectManagement;
+import databaseModel.student;
+
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+
+public class addGrade extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField studentIDInput;
+	private JTextField studentFullNameInput;
+	private JTextField labsInput;
+	private JTextField progressTestInput;
+	private JTextField finalExamInput;
+	private JTextField averageInput;
+	private JTextField gradeInput;
+	
+	menu menu = new menu();
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					addGrade frame = new addGrade();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public addGrade() {
+		studentManagement studentManage = new studentManagement();
+		subjectManagement subjectManage = new subjectManagement();
+		try {
+			studentManage.uploadStudentList();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			subjectManage.uploadModel();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 980, 480);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.ORANGE);
+		panel.setBounds(0, 0, 964, 83);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("ADD");
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblNewLabel.setBounds(30, 11, 182, 31);
+		panel.add(lblNewLabel);
+		
+		JLabel lblGradeing = new JLabel("GRADETING");
+		lblGradeing.setForeground(Color.WHITE);
+		lblGradeing.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblGradeing.setBounds(61, 41, 182, 31);
+		panel.add(lblGradeing);
+		
+		studentIDInput = new JTextField();
+		studentIDInput.setBounds(24, 126, 154, 20);
+		contentPane.add(studentIDInput);
+		studentIDInput.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("STUDENT ID");
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(24, 101, 80, 14);
+		contentPane.add(lblNewLabel_2);
+		
+		JComboBox subjectInput = new JComboBox();
+		subjectInput.setBounds(24, 237, 52, 22);
+		contentPane.add(subjectInput);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("STUDENT FULLNAME");
+		lblNewLabel_2_1.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel_2_1.setBounds(24, 157, 154, 14);
+		contentPane.add(lblNewLabel_2_1);
+		
+		studentFullNameInput = new JTextField();
+		studentFullNameInput.setColumns(10);
+		studentFullNameInput.setBounds(24, 182, 154, 20);
+		contentPane.add(studentFullNameInput);
+		
+		JLabel lblNewLabel_2_1_1 = new JLabel("SUBJECT");
+		lblNewLabel_2_1_1.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel_2_1_1.setBounds(24, 213, 154, 14);
+		contentPane.add(lblNewLabel_2_1_1);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.PINK);
+		panel_1.setBounds(295, 80, 10, 361);
+		contentPane.add(panel_1);
+		
+		JButton searchButton = new JButton("Search");
+		searchButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String fullName;
+				String studentID = studentIDInput.getText();
+				ArrayList<student> studentData = new ArrayList<student>();
+				studentData.addAll(studentManage.getreadModel(studentID));
+				if(studentData.isEmpty()) {
+					JOptionPane.showMessageDialog(null,"Your student ID is not on database, please check again...");
+				}
+				else {
+					fullName = studentData.get(0).getStudentFullName();
+					studentFullNameInput.setText(fullName);
+				}
+			}
+		});
+		searchButton.setBounds(196, 125, 89, 23);
+		contentPane.add(searchButton);
+		
+		JLabel labs = new JLabel("LABS");
+		labs.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		labs.setBounds(326, 101, 80, 14);
+		contentPane.add(labs);
+		
+		labsInput = new JTextField();
+		labsInput.setColumns(10);
+		labsInput.setBounds(324, 126, 154, 20);
+		contentPane.add(labsInput);
+		
+		JLabel lblProgressTest = new JLabel("PROGRESS TEST");
+		lblProgressTest.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblProgressTest.setBounds(326, 157, 109, 14);
+		contentPane.add(lblProgressTest);
+		
+		progressTestInput = new JTextField();
+		progressTestInput.setColumns(10);
+		progressTestInput.setBounds(324, 182, 154, 20);
+		contentPane.add(progressTestInput);
+		
+		JLabel lblFinal = new JLabel("FINAL EXAM");
+		lblFinal.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblFinal.setBounds(326, 213, 80, 14);
+		contentPane.add(lblFinal);
+		
+		finalExamInput = new JTextField();
+		finalExamInput.setColumns(10);
+		finalExamInput.setBounds(324, 238, 154, 20);
+		contentPane.add(finalExamInput);
+		
+		JLabel lblAverage = new JLabel("AVERAGE");
+		lblAverage.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblAverage.setBounds(326, 269, 80, 14);
+		contentPane.add(lblAverage);
+		
+		averageInput = new JTextField();
+		averageInput.setColumns(10);
+		averageInput.setBounds(324, 294, 154, 20);
+		contentPane.add(averageInput);
+		
+		JLabel lblGrade = new JLabel("GRADE");
+		lblGrade.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblGrade.setBounds(328, 325, 80, 14);
+		contentPane.add(lblGrade);
+		
+		gradeInput = new JTextField();
+		gradeInput.setColumns(10);
+		gradeInput.setBounds(326, 350, 154, 20);
+		contentPane.add(gradeInput);
+		
+		JButton saveButton = new JButton("Save");
+		saveButton.setBounds(656, 166, 114, 36);
+		contentPane.add(saveButton);
+		
+		JButton backButton = new JButton("Back");
+		backButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				menu.setVisible(true);
+				dispose();
+			}
+		});
+		backButton.setBounds(656, 265, 114, 36);
+		contentPane.add(backButton);
+		
+		JButton caculateButton = new JButton("Caculate");
+		caculateButton.setBounds(319, 389, 89, 23);
+		contentPane.add(caculateButton);
+	}
+}

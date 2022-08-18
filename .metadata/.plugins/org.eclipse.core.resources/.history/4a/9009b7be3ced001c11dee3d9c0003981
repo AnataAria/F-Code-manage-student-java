@@ -1,0 +1,46 @@
+package database;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import databaseModel.login ;
+public class loginManagement {
+	public final boolean checkUserPass(String userName, String passWord) throws IOException {
+		ArrayList<login> userPassFile = new ArrayList<login>();
+		int flag = 0;
+		userPassFile.addAll(upload());
+		for(login loginElement : userPassFile) {
+			if(loginElement.getUserName().equals(userName)&& loginElement.getPassWord().equals(passWord)) {
+				flag++;
+				break;
+			}
+		}
+		if(flag == 1) {
+			return true;
+		}
+		return false;
+	}
+	ArrayList<login>upload()throws IOException{
+		ArrayList<login> uploadData = new ArrayList<login>();
+		FileReader fileReader = new FileReader("E:\\JavaOOPTraining\\BEprojectF-CodeLV1Ver4\\BEprojectF-CodeLV1Ver4\\src\\data\\login.csv");
+		BufferedReader bufferedReader = new BufferedReader(fileReader);
+		String line = "";
+		String[] temp;
+		try {
+			while((line = bufferedReader.readLine()) != null) {
+				temp = line.split(",");
+				String userName = temp[0];
+				String passWord = temp[1];
+				String teacherName = temp[2];
+				login login = new login(userName, passWord, teacherName);
+				uploadData.add(login);
+			}	
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		bufferedReader.close();
+		return uploadData;
+	}
+}

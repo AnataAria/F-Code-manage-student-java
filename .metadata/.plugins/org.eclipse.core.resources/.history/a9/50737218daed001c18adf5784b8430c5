@@ -1,0 +1,13 @@
+package database;
+
+public interface model {
+	//read model from the database
+	void readModel();
+	//Delete 1 model from the database
+	void deleteModel();
+	//updateModel from the database
+	void updateModel();
+	//Add new model to the database
+	void addModel();
+	
+}

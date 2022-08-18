@@ -1,0 +1,40 @@
+package databaseModel;
+
+public class subject {
+	private String subjectID;
+	private String subjectName;
+	private String description;
+	private String note;
+	public subject(String subjectID, String subjectName, String description, String note) {
+		super();
+		this.subjectID = subjectID;
+		this.subjectName = subjectName;
+		this.description = description;
+		this.note = note;
+	}
+	public String getSubjectID() {
+		return subjectID;
+	}
+	public void setSubjectID(String subjectID) {
+		this.subjectID = subjectID;
+	}
+	public String getSubjectName() {
+		return subjectName;
+	}
+	public void setSubjectName(String subjectName) {
+		this.subjectName = subjectName;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getNote() {
+		return note;
+	}
+	public void setNote(String note) {
+		this.note = note;
+	}
+	
+}

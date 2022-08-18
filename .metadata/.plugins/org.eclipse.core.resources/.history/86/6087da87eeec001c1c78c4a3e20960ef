@@ -1,0 +1,8 @@
+package database;
+import ;
+public class loginManagement {
+	public static boolean checkUserPass(String userName, String passWord) {
+		
+		return true;
+	}
+}

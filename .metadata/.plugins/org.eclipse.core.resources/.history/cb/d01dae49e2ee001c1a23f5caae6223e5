@@ -1,0 +1,7 @@
+package validate;
+
+public class tool {
+	public double caculateAverage(double a, double b, double c) {
+		return (a + b + c)/3.0;
+	}
+}

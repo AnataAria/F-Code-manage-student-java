@@ -1,0 +1,72 @@
+package database;
+
+public class grade {
+	private String ID;
+	private String studentName;
+	private String subjectID;
+	private String labs;
+	private String progressTest;
+	private String finalTest;
+	private String average;
+	private String result;
+	public grade(String iD, String studentName, String subjectID, String labs, String progressTest, String finalTest, String average, String result) {
+		super();
+		this.ID = iD;
+		this.studentName = studentName;
+		this.subjectID = subjectID;
+		this.labs = labs;
+		this.progressTest = progressTest;
+		this.finalTest = finalTest;
+		this.average = average;
+		this.result = result;
+	}
+	public String getID() {
+		return ID;
+	}
+	public void setID(String iD) {
+		ID = iD;
+	}
+	public String getStudentName() {
+		return studentName;
+	}
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+	public String getSubjectID() {
+		return subjectID;
+	}
+	public void setSubjectID(String subjectID) {
+		this.subjectID = subjectID;
+	}
+	public String getLabs() {
+		return labs;
+	}
+	public void setLabs(String labs) {
+		this.labs = labs;
+	}
+	public String getProgressTest() {
+		return progressTest;
+	}
+	public void setProgressTest(String progressTest) {
+		this.progressTest = progressTest;
+	}
+	public String getFinalTest() {
+		return finalTest;
+	}
+	public void setFinalTest(String finalTest) {
+		this.finalTest = finalTest;
+	}
+	public String getAverage() {
+		return average;
+	}
+	public void setAverage(String average) {
+		this.average = average;
+	}
+	public String getResult() {
+		return result;
+	}
+	public void setResult(String result) {
+		this.result = result;
+	}
+	
+}

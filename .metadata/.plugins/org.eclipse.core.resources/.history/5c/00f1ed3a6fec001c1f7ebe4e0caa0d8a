@@ -1,0 +1,80 @@
+package database;
+
+public class student {
+	private String No;
+	private String studentFirstName;
+	private String studentLastName;
+	private String studentFullName;
+	private String ID;
+	private String gender;
+	private String dateOfBirth;
+	private String phoneNumber;
+	private String email;
+	public student(String no, String studentFirstName, String studentLastName, String studentFullName, String iD, String gender, String dateOfBirth, String phoneNumber, String email) {
+		this.No = no;
+		this.studentFirstName = studentFirstName;
+		this.studentLastName = studentLastName;
+		this.studentFullName = studentFullName;
+		this.ID = iD;
+		this.gender = gender;
+		this.dateOfBirth = dateOfBirth;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+	}
+	public String getNo() {
+		return No;
+	}
+	public void setNo(String no) {
+		No = no;
+	}
+	public String getStudentFirstName() {
+		return studentFirstName;
+	}
+	public void setStudentFirstName(String studentFirstName) {
+		this.studentFirstName = studentFirstName;
+	}
+	public String getStudentLastName() {
+		return studentLastName;
+	}
+	public void setStudentLastName(String studentLastName) {
+		this.studentLastName = studentLastName;
+	}
+	public String getStudentFullName() {
+		return studentFullName;
+	}
+	public void setStudentFullName(String studentFullName) {
+		this.studentFullName = studentFullName;
+	}
+	public String getID() {
+		return ID;
+	}
+	public void setID(String iD) {
+		ID = iD;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
+}

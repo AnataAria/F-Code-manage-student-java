@@ -1,0 +1,18 @@
+package database;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.ArrayList;
+
+import databaseModel.login ;
+public class loginManagement {
+	public static boolean checkUserPass(String userName, String passWord) {
+		ArrayList<login> userPassFile = new ArrayList<login>();
+		
+		return true;
+	}
+	ArrayList<login>upload() throws FileNotFoundException{
+		ArrayList<login> uploadData = new ArrayList<login>();
+		FileReader fileReader = new FileReader("E:\\JavaOOPTraining\\BEprojectF-CodeLV1Ver4\\BEprojectF-CodeLV1Ver4\\src\\data\\login.csv");
+		return uploadData; 
+	}
+}
